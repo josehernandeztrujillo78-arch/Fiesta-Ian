@@ -1,0 +1,894 @@
+
+:root {
+  --stitch-blue: #1a053b;      /* Azul brillante */
+  --stitch-dark: #0A1F44;      /* Azul profundo intenso */
+  --stitch-accent: #FFD60A;    /* Amarillo vibrante */
+  --pool-teal: #00E5CC;        /* Turquesa neón */
+  --energy-green: hwb(49 5% 11%);     /* Verde neón divertido */
+  --bg: #FFF4E0;               /* Fondo cálido suave */
+  --card-bg: #FFFFFF;          /* Blanco limpio */
+  --text-dark: #1A1A1A;        /* Negro suave */
+  --text-muted: #4A4A4A;       /* Gris medio */
+  --border-light: #FF9F1C;     /* Naranja alegre */
+}
+
+
+  *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-title {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==================== HERO SECTION ==================== */
+  .hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(10, 31, 68, 0.7), rgba(10, 31, 68, 0.7)),
+    url("playa.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+    /* Geometric circles */
+    .hero-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 4px solid;
+      opacity: 0;
+      animation: pulse-circle 3s ease-in-out infinite, fade-in 1s ease forwards;
+    }
+
+    .hero-circle--1 {
+      top: 2rem;
+      left: 2rem;
+      width: 5rem;
+      height: 5rem;
+      border-color: rgba(245, 158, 11, 0.3);
+      animation-duration: 3s;
+      animation-delay: 0.2s;
+      border-width: 6px;
+  box-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+    }
+
+    .hero-circle--2 {
+      top: 6rem;
+      right: 3rem;
+      width: 3rem;
+      height: 3rem;
+      border-color: rgba(13, 148, 136, 0.3);
+      animation-duration: 2.5s;
+      animation-delay: 0.4s;
+      border-width: 6px;
+  box-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+    }
+
+    .hero-circle--3 {
+      bottom: 8rem;
+      left: 4rem;
+      width: 4rem;
+      height: 4rem;
+      border-color: rgba(34, 197, 94, 0.25);
+      animation-duration: 2.8s;
+      animation-delay: 0.6s;
+        border-width: 6px;
+  box-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+    }
+
+    .hero-circle--4 {
+      bottom: 4rem;
+      right: 2rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-color: rgba(245, 158, 11, 0.2);
+      animation-duration: 3.2s;
+      animation-delay: 0.8s;
+        border-width: 6px;
+  box-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+    }
+
+    /* Small floating dots */
+    .hero-dot {
+      position: absolute;
+      border-radius: 50%;
+      animation: bounce-dot 2s ease-in-out infinite;
+    }
+
+    .hero-dot--1 {
+      top: 25%;
+      left: 25%;
+      width: 0.75rem;
+      height: 0.75rem;
+      background: rgba(245, 158, 11, 0.4);
+      animation-duration: 2s;
+    }
+
+    .hero-dot--2 {
+      top: 33%;
+      right: 33%;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: rgba(13, 148, 136, 0.5);
+      animation-duration: 2.4s;
+    }
+
+    .hero-dot--3 {
+      bottom: 33%;
+      left: 33%;
+      width: 0.75rem;
+      height: 0.75rem;
+      background: rgba(34, 197, 94, 0.4);
+      animation-duration: 1.8s;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      opacity: 0;
+      transform: translateY(2rem);
+      animation: slide-up 1s ease forwards 0.3s;
+    }
+
+    .hero-badge {
+      background: var(--stitch-accent);
+      color: var(--stitch-dark);
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-photo-wrapper {
+      position: relative;
+      width: 13rem;
+      height: 13rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-photo-main {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--stitch-accent);
+      box-shadow: 0 25px 50px rgba(30, 58, 95, 0.5);
+    }
+
+    .hero-photo-stitch {
+      position: absolute;
+      bottom: -0.75rem;
+      right: -0.75rem;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--pool-teal);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-title {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .hero-title-name {
+      display: block;
+      font-size: 2.5rem;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+    }
+
+    .hero-title-age {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--stitch-accent);
+      margin-top: 0.5rem;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-theme-box {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 1rem;
+      padding: 1rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+
+    .hero-theme-label {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+    }
+
+    .hero-theme-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2rem;
+      color: var(--stitch-accent);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      margin-top: 0.25rem;
+    }
+
+    .hero-desc {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 20rem;
+      line-height: 1.6;
+    }
+
+    .hero-scroll {
+      margin-top: 1.5rem;
+      animation: bounce-dot 1.5s ease-in-out infinite;
+    }
+
+    .hero-scroll svg {
+      stroke: var(--stitch-accent);
+    }
+
+    /* ==================== DETAILS SECTION ==================== */
+    .details {
+      position: relative;
+      padding: 4rem 1rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      color: var(--stitch-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header-line {
+      width: 6rem;
+      height: 4px;
+      background: var(--stitch-accent);
+      margin: 0 auto;
+      border-radius: 9999px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    .detail-card {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 2px solid transparent;
+      text-align: center;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+
+    .detail-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .detail-card--fecha { border-color: rgba(37, 99, 235, 0.3); }
+    .detail-card--fecha:hover { border-color: rgba(37, 99, 235, 0.6); }
+    .detail-card--hora { border-color: rgba(13, 148, 136, 0.3); }
+    .detail-card--hora:hover { border-color: rgba(13, 148, 136, 0.6); }
+    .detail-card--lugar { border-color: rgba(245, 158, 11, 0.3); }
+    .detail-card--lugar:hover { border-color: rgba(245, 158, 11, 0.6); }
+
+    .detail-card-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+      background: rgba(30, 58, 95, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+    }
+
+    .detail-card h3 {
+      font-size: 1.25rem;
+      color: var(--stitch-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-card .value-big {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.5rem;
+      color: var(--stitch-blue);
+    }
+
+    .detail-card .value-accent {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.25rem;
+      color: rgb(233, 169, 31);
+     
+    }
+
+    .detail-card .value-muted {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+    }
+
+    /* Pool note */
+    .pool-note {
+      max-width: 32rem;
+      margin: 2.5rem auto 0;
+      background: rgba(13, 148, 136, 0.08);
+      border: 2px solid rgba(13, 148, 136, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: all 0.6s ease;
+    }
+
+    .pool-note.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pool-note-icon {
+      flex-shrink: 0;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+      background: rgba(13, 148, 136, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pool-note-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.1rem;
+      color: var(--pool-teal);
+    }
+
+    .pool-note-text {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Stitch accent image */
+    .details-stitch {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+/* Contenedor de Stitch */
+.details-stitch img {
+  width: 150px;          /* Ajusta el tamaño */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1rem;   /* Opcional: bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  animation: float-stitch 4s ease-in-out infinite;
+}
+
+/* Animación flotante y girando suavemente */
+@keyframes float-stitch {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-8px) rotate(-2deg); }
+  50%  { transform: translateY(-12px) rotate(2deg); }
+  75%  { transform: translateY(-8px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Hover opcional para interactuar */
+.details-stitch img:hover {
+  transform: scale(1.05) rotate(0deg);
+}
+
+    /* ==================== COUNTDOWN SECTION ==================== */
+    .countdown {
+      padding: 4rem 1rem 5rem;
+       background-color: #390c42; /* Cambia este color */
+      text-align: center;
+    }
+
+    .countdown h2 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-subtitle {
+      color: rgba(228, 219, 219, 0.6);
+      margin-bottom: 1rem;
+      color: rgb(223, 224, 127);
+      font-size: 2rem;
+    }
+
+    .countdown-units {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown-unit-box {
+      background: var(--stitch-dark);
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .countdown-unit-value {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 6rem;
+      color: var(--stitch-accent);
+    }
+
+    .countdown-unit-label {
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      
+    }
+
+    .countdown-message {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--stitch-accent);
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* ==================== ACTION BUTTONS ==================== */
+    .actions {
+      padding: 4rem 1rem;
+    }
+
+    .actions-content {
+      max-width: 28rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0;
+      transform: translateY(2rem);
+      transition: all 0.7s ease;
+    }
+
+    .actions-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .actions-stitch {
+      width: 9rem;
+      height: 9rem;
+      object-fit: cover;
+      border-radius: 1rem;
+      border: 4px solid var(--stitch-accent);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 0.5rem;
+    }
+
+    .actions h2 {
+      font-size: 1.75rem;
+      color: var(--stitch-dark);
+      text-align: center;
+    }
+
+    .actions-desc {
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 18rem;
+    }
+
+    .action-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 24rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.1rem;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .action-btn--confirm {
+      background: var(--energy-green);
+    }
+
+    .action-btn--location {
+      background: var(--stitch-blue);
+    }
+
+    .action-btn svg {
+      flex-shrink: 0;
+    }
+
+    .actions-address {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .actions-address-name {
+      font-family: 'Fredoka', sans-serif;
+      color: var(--stitch-dark);
+      font-size: 2rem;
+    }
+
+    .actions-address-line {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    @keyframes float-stitch {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-8px) rotate(-2deg); }
+  50%  { transform: translateY(-12px) rotate(2deg); }
+  75%  { transform: translateY(-8px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.actions-stitch {
+  animation: float-stitch 4s ease-in-out infinite;
+}
+
+.action-btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: btn-appear 0.8s forwards;
+}
+
+.action-btn--confirm {
+  animation-delay: 0.3s;
+}
+
+.action-btn--location {
+  animation-delay: 0.6s;
+}
+
+@keyframes btn-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación flotante para botones */
+@keyframes float-btn {
+  0%   { transform: translateY(0) translateX(0); }
+  25%  { transform: translateY(-6px) translateX(3px); }
+  50%  { transform: translateY(-12px) translateX(0); }
+  75%  { transform: translateY(-6px) translateX(-3px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* Aplicar animación a los botones */
+.action-btn {
+  opacity: 1; /* Ya aparecen visibles */
+  animation: float-btn 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Hover para agrandarlos al pasar el cursor */
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      position: relative;
+      padding: 3rem 1rem;
+      
+      text-align: center;
+      overflow: hidden;
+      background-color: #38082cc9;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 10;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .footer-ohana {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.5rem;
+      color: var(--stitch-accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-ohana-sub {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* Contenedor de la línea + imagen */
+.footer-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;          /* Reduce el espacio entre las líneas y la imagen */
+  margin-bottom: 0.5rem;
+}
+
+/* Líneas azules */
+.footer-divider-line {
+  flex: 1;                  /* Se expanden a los lados */
+  height: 2px;              /* Grosor de la línea */
+  background-color: #3B82F6; /* Azul */
+  transition: all 0.5s ease;
+}
+
+/* Animación opcional para acercar las líneas al pasar el mouse */
+.footer-divider:hover .footer-divider-line {
+  flex: 0.5; /* Se acercan más a la imagen */
+}
+
+    /* Imagen más grande y centrada */
+/* Imagen más grande, proporcional y centrada */
+.footer-divider-img {
+  width: 100px;        /* Ancho deseado */
+  height: 100px;       /* Alto deseado */
+  object-fit: cover;   /* Mantiene proporción y recorta si es necesario */
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px; /* opcional, para esquinas redondeadas */
+  transition: transform 0.5s ease;
+}
+
+/* Animación flotante y escalando suavemente */
+@keyframes float-scale {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-15px) scale(1.05); } /* Sube y crece un 5% */
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Aplicar animación */
+.footer-divider-img {
+  animation: float-scale 3s ease-in-out infinite;
+}
+
+
+    .footer-divider-line {
+      width: 3rem;
+      height: 2px;
+      background: rgb(37, 100, 235);
+      border-radius: 9999px;
+    }
+
+    
+
+    .footer-reminder {
+      font-family: 'Fredoka', sans-serif;
+      color: hsl(246, 78%, 65%);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-family {
+      color: rgb(221, 125, 16);
+      font-size: 1.2rem;
+    }
+
+    /* ==================== ANIMATIONS ==================== */
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(2rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse-circle {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    @keyframes bounce-dot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (min-width: 768px) {
+      .hero-photo-wrapper {
+        width: 16rem;
+        height: 16rem;
+      }
+
+      .hero-photo-stitch {
+        width: 6rem;
+        height: 6rem;
+      }
+
+      .hero-title-name {
+        font-size: 3.75rem;
+      }
+
+      .hero-title-age {
+        font-size: 1.75rem;
+      }
+
+      .hero-theme-name {
+        font-size: 2.5rem;
+      }
+
+      .hero-circle--1 { width: 8rem; height: 8rem; }
+      .hero-circle--2 { width: 5rem; height: 5rem; }
+      .hero-circle--3 { width: 6rem; height: 6rem; }
+      .hero-circle--4 { width: 5rem; height: 5rem; }
+
+      .section-header h2 {
+        font-size: 3rem;
+      }
+
+      .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .detail-card {
+        padding: 2rem;
+      }
+
+      .details-stitch img {
+        width: 9rem;
+        height: 9rem;
+      }
+
+      .countdown h2 {
+        font-size: 2.25rem;
+      }
+
+      .countdown-units {
+        gap: 1.5rem;
+      }
+
+      .countdown-unit-box {
+        width: 6rem;
+        height: 6rem;
+      }
+
+      .countdown-unit-value {
+        font-size: 2.5rem;
+      }
+
+      .countdown-unit-label {
+        font-size: 0.8rem;
+      }
+
+      .countdown-message {
+        font-size: 1.25rem;
+      }
+
+      .actions h2 {
+        font-size: 2.25rem;
+      }
+
+      .actions-stitch {
+        width: 9rem;
+        height: 9rem;
+      }
+
+      .action-btn {
+        font-size: 1.25rem;
+      }
+
+      .footer-ohana {
+        font-size: 1.875rem;
+      }
+    }
+
+
+    .hero-video {
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
