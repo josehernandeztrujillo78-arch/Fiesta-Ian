@@ -265,6 +265,7 @@
 
     .hero-desc {
       color: rgb(255, 255, 255);
+       background: rgba(255, 255, 255, 0.12);
       text-align: center;
       font-size: 1.1rem;
       max-width: 20rem;
@@ -454,69 +455,111 @@
 }
 
     /* ==================== COUNTDOWN SECTION ==================== */
-    .countdown {
-      padding: 4rem 1rem 5rem;
-       background-color: #390c42; /* Cambia este color */
-      text-align: center;
-    }
+/* Contenedor principal */
+.countdown {
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #6a0dad, #3d0925); /* fondo degradado vibrante */
+  text-align: center;
+}
 
-    .countdown h2 {
-      font-size: 1.5rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
+/* Título */
+.countdown h2 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
 
-    .countdown-subtitle {
-      color: rgba(228, 219, 219, 0.6);
-      margin-bottom: 1rem;
-      color: rgb(223, 224, 127);
-      font-size: 2rem;
-    }
+/* Subtítulo */
+.countdown-subtitle {
+  color: #ffe600; /* amarillo vivo */
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
 
-    .countdown-units {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-    }
+/* Contenedor de unidades */
+.countdown-units {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
 
-    .countdown-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+/* Cada unidad como tarjeta */
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(145deg, #ff6ec7, #8338ec); /* tarjeta con degradado vivo */
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
+  min-width: 80px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .countdown-unit-box {
-      background: var(--stitch-dark);
-      width: 4rem;
-      height: 4rem;
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+.countdown-unit:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
 
-    .countdown-unit-value {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 6rem;
-      color: var(--stitch-accent);
-    }
+/* Valor de la cuenta regresiva */
+.countdown-unit-value {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 3rem;
+ color: #ffe600;  
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
 
-    .countdown-unit-label {
-      font-size: 4rem;
-      color: rgba(255, 255, 255, 0.6);
-      margin-top: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      
-    }
+/* Label debajo del número */
+.countdown-unit-label {
+  font-size: 1rem;
+  color: #ffffff; /* blanco puro */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
 
-    .countdown-message {
-      font-family: 'Fredoka', sans-serif;
-      color: var(--stitch-accent);
-      font-size: 1.5rem;
-      margin-top: 2rem;
-    }
+/* Mensaje final */
+.countdown-message {
+  font-family: 'Fredoka', sans-serif;
+  color: #00ff99; /* verde neón */
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+  .countdown-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .countdown-units {
+    gap: 0.5rem;
+  }
+
+  .countdown-unit {
+    min-width: 60px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .countdown-unit-value {
+    font-size: 2.2rem;
+  }
+
+  .countdown-unit-label {
+    font-size: 0.9rem;
+  }
+
+  .countdown-message {
+    font-size: 1.1rem;
+  }
+}
+
+
 
     /* ==================== ACTION BUTTONS ==================== */
     .actions {
@@ -883,12 +926,35 @@
         font-size: 1.875rem;
       }
     }
-
-
-    .hero-video {
+/* Contenedor del video */
+.hero-video {
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 600px; /* ancho máximo en pantallas grandes */
+  width: 90%;       /* adaptable al ancho del dispositivo */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  background-color: #000; /* fondo opcional */
+}
+
+/* Video dentro del contenedor */
+.hero-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* mantiene todo el video visible */
+  border-radius: 16px; /* opcional, para que coincida con el contenedor */
+}
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 480px) {
+  .hero-video {
+    width: 95%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  .hero-video video {
+    border-radius: 12px;
+  }
 }
