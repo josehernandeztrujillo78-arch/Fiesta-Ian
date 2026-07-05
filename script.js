@@ -54,3 +54,30 @@
 
     // Observe action buttons section
     observeElements(".actions-content", "visible");
+
+
+    let confettiStarted = false;
+    function startConfetti() {
+  setInterval(() => {
+    confetti({
+      particleCount: 6,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+  }, 400);
+}
+function checkCelebrationDay() {
+  var now = new Date();
+
+  if (
+    !confettiStarted &&
+    now.getFullYear() === 2026 &&
+    now.getMonth() === 8 && // septiembre = 8
+    now.getDate() === 6
+  ) {
+    confettiStarted = true;
+    startConfetti();
+  }
+}
+
+setInterval(checkCelebrationDay, 1000);

@@ -423,6 +423,10 @@
       margin-top: 0.25rem;
     }
 
+    .pool-note {
+       animation: float-scale 3s ease-in-out infinite;
+     }
+
     /* Stitch accent image */
     .details-stitch {
       display: flex;
@@ -959,4 +963,48 @@
   .hero-video video {
     border-radius: 12px;
   }
+}
+
+
+/* ==================== TALLAS ==================== */
+
+.gift-sizes{
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.gift-sizes-content{
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+.gift-sizes h2{
+    font-size: 2rem;
+    color: var(--stitch-dark);
+    margin-bottom: 1rem;
+}
+
+.gift-text{
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.gift-card{
+    background: var(--card-bg);
+    border: 2px solid rgba(37, 99, 235, 0.3);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.gift-card p{
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: .8rem 0;
+}
+
+.gift-card strong{
+    color: var(--stitch-blue);
 }
